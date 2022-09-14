@@ -1,0 +1,27 @@
+plugins {
+    id 'java'
+}
+
+group 'de.muv1n'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+
+    implementation("net.dv8tion:JDA:5.0.0-alpha.18")
+    implementation("org.mongodb:mongodb-driver-reactivestreams:4.6.0")
+    implementation("com.fasterxml.jackson.core:jackson-databind:2.13.3")
+    implementation("org.slf4j:slf4j-simple:1.7.36")
+    implementation("com.google.code.gson:gson:2.7")
+    implementation 'org.projectlombok:lombok:1.18.22'
+}
+
+java {
+    toolchain {
+        languageVersion.set(JavaLanguageVersion.of(18))
+    }
+}
+
