@@ -5,7 +5,7 @@ Du darfst den Code gerne verwenden, um dich inspirieren zu lassen oder auf Grund
 ## Coding
 Du möchtest beim coden von dem bot live in einem Stream sehen, dann schaue bei mir auf [Twitch](https://twitch.tv/muv1n) vorbei. es gibt ab und zu streams!
 
-# Jb Bot (English)
+# JB Bot (English)
 This Discord bot is made for the Community [Discord](https://discord.gg/pDausEpMR5) from [TheRealJosh](https://Twitch.tv/therealj0sh) and [BlueEye](https://twitch.tv/blueeye01).
 
 ## Code Publicity
