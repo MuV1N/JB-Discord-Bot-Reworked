@@ -1,10 +1,12 @@
 package de.muv1n.jbBot.command;
 
 import de.muv1n.jbBot.JBBot;
+import de.muv1n.jbBot.command.util.CommandObject;
 import de.muv1n.jbBot.translation.CommonTranslation;
 import de.muv1n.jbBot.translation.MessageTranslation;
 import net.dv8tion.jda.api.entities.User;
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
+import net.dv8tion.jda.api.events.interaction.component.ButtonInteractionEvent;
 import net.dv8tion.jda.api.interactions.commands.Command;
 import net.dv8tion.jda.api.interactions.commands.CommandAutoCompleteInteraction;
 import net.dv8tion.jda.api.interactions.commands.OptionType;
@@ -18,7 +20,7 @@ import java.util.Locale;
 import java.util.Objects;
 import java.util.stream.Stream;
 
-public class BlueEyeCommand extends CommandObject{
+public class BlueEyeCommand extends CommandObject {
 
     public BlueEyeCommand(@NotNull JBBot jbBot){
         super(jbBot);
@@ -78,4 +80,10 @@ public class BlueEyeCommand extends CommandObject{
                 .toList();
         e.replyChoices(options).queue();
     }
+
+    @Override
+    public void interactionButton(ButtonInteractionEvent e) {
+        return;
+    }
+
 }

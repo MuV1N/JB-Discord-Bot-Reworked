@@ -1,11 +1,13 @@
-package de.muv1n.jbBot.command;
+package de.muv1n.jbBot.command.util;
 
 import de.muv1n.jbBot.JBBot;
+import de.muv1n.jbBot.command.BlueEyeCommand;
+import de.muv1n.jbBot.command.TheRealJ0shCommand;
 import net.dv8tion.jda.api.events.interaction.command.CommandAutoCompleteInteractionEvent;
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
+import net.dv8tion.jda.api.events.interaction.component.ButtonInteractionEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import net.dv8tion.jda.api.requests.restaction.CommandListUpdateAction;
-import okhttp3.internal.http2.Http2Connection;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
@@ -49,6 +51,13 @@ public class CommandManager extends ListenerAdapter {
                 continue;
             }
             object.autoComplete(e);
+        }
+    }
+
+    @Override
+    public void onButtonInteraction(@NotNull ButtonInteractionEvent e) {
+        for (CommandObject object : list){
+            object.interactionButton(e);
         }
     }
 }

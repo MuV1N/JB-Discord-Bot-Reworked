@@ -1,6 +1,9 @@
 package de.muv1n.jbBot;
 
-import de.muv1n.jbBot.command.CommandManager;
+import de.muv1n.jbBot.command.util.CommandManager;
+import de.muv1n.jbBot.events.JoinEvent;
+import de.muv1n.jbBot.events.PrivateMessageReceive;
+import de.muv1n.jbBot.events.QuitEvent;
 import de.muv1n.jbBot.translation.CommonTranslation;
 import de.muv1n.jbBot.translation.MessageTranslation;
 import net.dv8tion.jda.api.JDA;
@@ -18,6 +21,7 @@ public class JBBot {
     private final JDA bot;
     private final MessageTranslation message;
     private final CommonTranslation common;
+
     public JBBot(String key) throws LoginException, InterruptedException, IOException {
         JDA bot;
         JDABuilder builder = JDABuilder.createDefault(key);
@@ -35,6 +39,7 @@ public class JBBot {
         builder.setActivity(Activity.playing(common.get("activity")));
         builder.setStatus(OnlineStatus.ONLINE);
         builder.addEventListeners(commandManager);
+        builder.addEventListeners(new JoinEvent(this), new QuitEvent(this), new PrivateMessageReceive(this));
 
         bot = builder.build();
         bot.awaitReady();
@@ -43,7 +48,7 @@ public class JBBot {
         this.bot = bot;
         commandManager.load(this);
 
-        new Stop(bot, builder);
+        new de.muv1n.jbBot.Stop(bot, builder);
     }
 
     public JDA getBot() {
@@ -57,4 +62,5 @@ public class JBBot {
     public CommonTranslation getCommon() {
         return common;
     }
+
 }

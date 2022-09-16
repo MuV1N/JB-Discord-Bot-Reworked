@@ -1,10 +1,12 @@
 package de.muv1n.jbBot.command;
 
 import de.muv1n.jbBot.JBBot;
+import de.muv1n.jbBot.command.util.CommandObject;
 import de.muv1n.jbBot.translation.CommonTranslation;
 import de.muv1n.jbBot.translation.MessageTranslation;
 import net.dv8tion.jda.api.entities.User;
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
+import net.dv8tion.jda.api.events.interaction.component.ButtonInteractionEvent;
 import net.dv8tion.jda.api.interactions.commands.Command;
 import net.dv8tion.jda.api.interactions.commands.CommandAutoCompleteInteraction;
 import net.dv8tion.jda.api.interactions.commands.OptionType;
@@ -18,7 +20,7 @@ import java.util.Locale;
 import java.util.Objects;
 import java.util.stream.Stream;
 
-public class TheRealJ0shCommand extends CommandObject{
+public class TheRealJ0shCommand extends CommandObject {
 
     public TheRealJ0shCommand(@NotNull JBBot jbBot){
         super(jbBot);
@@ -71,5 +73,9 @@ public class TheRealJ0shCommand extends CommandObject{
                 .map(word -> new Command.Choice(word, word))
                 .toList();
         e.replyChoices(options).queue();
+    }
+    @Override
+    public void interactionButton(ButtonInteractionEvent e) {
+        return;
     }
 }
